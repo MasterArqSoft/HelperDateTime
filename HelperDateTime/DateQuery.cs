@@ -36,7 +36,7 @@ public static class DateQuery
             }
         }
 
-        return TimeZoneInfo.ConvertTimeFromUtc(utcNow, targetTimeZone);
+        return TimeZoneInfo.ConvertTimeFromUtc(utcNow, targetTimeZone).Date;
     }
 
     /// <summary>
