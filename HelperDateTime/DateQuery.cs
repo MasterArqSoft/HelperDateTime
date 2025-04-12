@@ -47,7 +47,7 @@ public static class DateQuery
     /// <exception cref="ArgumentOutOfRangeException">Thrown when <paramref name="year"/> is not positive.</exception>
     public static bool IsLeapYear(int? year)
     {
-        ValidatePositive(year, nameof(year));
+        HelperValidateDate.ValidatePositive(year, nameof(year));
         return DateTime.IsLeapYear(year!.Value);
     }
 
@@ -60,8 +60,8 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when either date is null.</exception>
     public static int DaysDifferenceFromDate(DateTime? date1, DateTime? date2)
     {
-        ValidateDate(date1, nameof(date1));
-        ValidateDate(date2, nameof(date2));
+        HelperValidateDate.ValidateDate(date1, nameof(date1));
+        HelperValidateDate.ValidateDate(date2, nameof(date2));
 
         return date1 > date2 ? 0 : (date2!.Value - date1!.Value).Days;
     }
@@ -75,8 +75,8 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="year"/> or <paramref name="month"/> is null.</exception>
     public static int DaysInMonth(int? year, int? month)
     {
-        ValidateNotNull(year, nameof(year));
-        ValidateNotNull(month, nameof(month));
+        HelperValidateDate.ValidateNotNull(year, nameof(year));
+        HelperValidateDate.ValidateNotNull(month, nameof(month));
 
         return DateTime.DaysInMonth(year!.Value, month!.Value);
     }
@@ -89,7 +89,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static int GetDay(DateTime? date)
     {
-        return ValidateAndReturn(date, d => d.Day, nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => d.Day, nameof(date));
     }
 
     /// <summary>
@@ -100,7 +100,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static int GetMonth(DateTime? date)
     {
-        return ValidateAndReturn(date, d => d.Month, nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => d.Month, nameof(date));
     }
 
     /// <summary>
@@ -111,7 +111,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static int GetYear(DateTime? date)
     {
-        return ValidateAndReturn(date, d => d.Year, nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => d.Year, nameof(date));
     }
 
     /// <summary>
@@ -122,7 +122,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static int GetDayOfYear(DateTime? date)
     {
-        return ValidateAndReturn(date, d => d.DayOfYear, nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => d.DayOfYear, nameof(date));
     }
 
     /// <summary>
@@ -133,7 +133,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static int GetDayOfWeek(DateTime? date)
     {
-        return ValidateAndReturn(date, d => (int)d.DayOfWeek + 1, nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => (int)d.DayOfWeek + 1, nameof(date));
     }
 
     /// <summary>
@@ -146,9 +146,9 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when any parameter is null.</exception>
     public static int GetNumDayOfWeekBetweenDates(int? dayOfWeek, DateTime? startDate, DateTime? endDate)
     {
-        ValidateNotNull(dayOfWeek, nameof(dayOfWeek));
-        ValidateDate(startDate, nameof(startDate));
-        ValidateDate(endDate, nameof(endDate));
+        HelperValidateDate.ValidateNotNull(dayOfWeek, nameof(dayOfWeek));
+        HelperValidateDate.ValidateDate(startDate, nameof(startDate));
+        HelperValidateDate.ValidateDate(endDate, nameof(endDate));
 
         if (startDate > endDate)
         {
@@ -183,7 +183,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static DateTime Tomorrow(DateTime? date)
     {
-        return ValidateAndReturn(date, d => d.AddDays(1), nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => d.AddDays(1), nameof(date));
     }
 
     /// <summary>
@@ -194,7 +194,7 @@ public static class DateQuery
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
     public static DateTime Yesterday(DateTime? date)
     {
-        return ValidateAndReturn(date, d => d.AddDays(-1), nameof(date));
+        return HelperValidateDate.ValidateAndReturn(date, d => d.AddDays(-1), nameof(date));
     }
 
     /// <summary>
@@ -208,9 +208,9 @@ public static class DateQuery
     /// <exception cref="ArgumentException">Thrown when the interval is not supported.</exception>
     public static DateTime DateAdd(string interval, int? number, DateTime? date)
     {
-        ValidateNotNull(interval, nameof(interval));
-        ValidateNotNull(number, nameof(number));
-        ValidateDate(date, nameof(date));
+        HelperValidateDate.ValidateNotNull(interval, nameof(interval));
+        HelperValidateDate.ValidateNotNull(number, nameof(number));
+        HelperValidateDate.ValidateDate(date, nameof(date));
 
         return interval switch
         {
@@ -220,81 +220,4 @@ public static class DateQuery
             _ => throw new ArgumentException("Intervalo no soportado. Use 'yyyy', 'm', o 'd'.", nameof(interval)),
         };
     }
-
-    #region Private Helpers
-
-    /// <summary>
-    /// Validates that the date is not null.
-    /// </summary>
-    /// <param name="date">The date to validate.</param>
-    /// <param name="paramName">The name of the parameter being validated.</param>
-    /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
-    private static void ValidateDate(DateTime? date, string paramName)
-    {
-        if (!date.HasValue)
-        {
-            throw new ArgumentNullException(paramName, $"La fecha '{paramName}' no puede ser nula.");
-        }
-    }
-
-    /// <summary>
-    /// Validates that a nullable value is not null.
-    /// </summary>
-    /// <typeparam name="T">The type of the value.</typeparam>
-    /// <param name="value">The value to validate.</param>
-    /// <param name="paramName">The name of the parameter being validated.</param>
-    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-    private static void ValidateNotNull<T>(T? value, string paramName) where T : struct
-    {
-        if (!value.HasValue)
-        {
-            throw new ArgumentNullException(paramName, $"El parámetro '{paramName}' no puede ser nulo.");
-        }
-    }
-
-    /// <summary>
-    /// Validates that a reference type value is not null.
-    /// </summary>
-    /// <typeparam name="T">The type of the value.</typeparam>
-    /// <param name="value">The value to validate.</param>
-    /// <param name="paramName">The name of the parameter being validated.</param>
-    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
-    private static void ValidateNotNull<T>(T value, string paramName) where T : class
-    {
-        if (value is null)
-        {
-            throw new ArgumentNullException(paramName, $"El parámetro '{paramName}' no puede ser nulo.");
-        }
-    }
-
-    /// <summary>
-    /// Validates that a nullable integer is positive.
-    /// </summary>
-    /// <param name="value">The value to validate.</param>
-    /// <param name="paramName">The name of the parameter being validated.</param>
-    /// <exception cref="ArgumentOutOfRangeException">Thrown when <paramref name="value"/> is not positive.</exception>
-    private static void ValidatePositive(int? value, string paramName)
-    {
-        if (!value.HasValue || value <= 0)
-        {
-            throw new ArgumentOutOfRangeException(paramName, $"El valor de '{paramName}' debe ser un número positivo mayor a cero.");
-        }
-    }
-
-    /// <summary>
-    /// Validates a date and applies a selector function to it.
-    /// </summary>
-    /// <typeparam name="TOut">The type of the result.</typeparam>
-    /// <param name="date">The date to validate.</param>
-    /// <param name="selector">The function to apply to the date.</param>
-    /// <param name="paramName">The name of the parameter being validated.</param>
-    /// <returns>The result of applying the selector function to the date.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when <paramref name="date"/> is null.</exception>
-    private static TOut ValidateAndReturn<TOut>(DateTime? date, Func<DateTime, TOut> selector, string paramName)
-    {
-        ValidateDate(date, paramName);
-        return selector(date!.Value);
-    }
-
-    #endregion
 }

@@ -34,7 +34,30 @@ Ejecutar(() => $"GetNumDayOfWeekBetweenDates(1, {fechaInicio}, {fechaFin}): {Dat
 
 Ejecutar(() => $"IsLeapYear({añoInvalido}): {DateQuery.IsLeapYear(añoInvalido)}");
 
-Console.WriteLine("\n================ Fin de pruebas ================\n");
+Console.WriteLine("\n================ Fin de pruebas DateQuery ================\n");
+
+Console.WriteLine("======= Prueba de nuevas funciones de HelperDateTime =======\n");
+
+DateTime? fecha1 = new DateTime(2024, 5, 15, 0, 0, 0, DateTimeKind.Local);
+DateTime? fecha2 = new DateTime(2024, 5, 10, 0, 0, 0, DateTimeKind.Local);
+string cadenaFecha = "3/02/2005";
+int? año = 2024, mess = 2, día = 30;
+
+Ejecutar(() => $"DateAfter({fecha1}, {fecha2}): {DateConversion.DateAfter(fecha1, fecha2)}");
+Ejecutar(() => $"DateBefore({fecha2}, {fecha1}): {DateConversion.DateBefore(fecha2, fecha1)}");
+Ejecutar(() => $"DateEquals({fecha1}, {fecha1}): {DateConversion.DateEquals(fecha1, fecha1)}");
+
+Console.WriteLine("\n================ Fin de pruebas Date Conversion ================\n");
+
+Ejecutar(() => $"ToShortDateFormat({fecha1}): {DateComparison.ToShortDateFormat(fecha1)}");
+Ejecutar(() => $"ToMediumDateFormat({fecha1}): {DateComparison.ToMediumDateFormat(fecha1)}");
+Ejecutar(() => $"ToLongDateFormat({fecha1}): {DateComparison.ToLongDateFormat(fecha1)}");
+Ejecutar(() => $"ToFullDateFormat({fecha1}): {DateComparison.ToFullDateFormat(fecha1)}");
+
+Ejecutar(() => $"StringToDate(\"{cadenaFecha}\"): {DateComparison.StringToDate(cadenaFecha)}");
+Ejecutar(() => $"FormatToDate({año}, {mess}, {día}): {DateComparison.FormatToDate(año, mes, día)}");
+
+Console.WriteLine("\n================ Fin de pruebas Date Comparison ================\n");
 /// <summary>
 /// Executes a test function and handles any exceptions that occur during execution.
 /// </summary>
