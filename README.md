@@ -1,33 +1,69 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/.NET-9.0-purple?style=for-the-badge&logo=dotnet" alt=".NET 9 Badge"/>
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build Status Badge"/>
+  <img src="https://img.shields.io/badge/Tests-Passing-brightgreen?style=for-the-badge" alt="Tests Passing Badge"/>
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License MIT Badge"/>
+  <!-- Futuro: cuando publiques en NuGet
+  <img src="https://img.shields.io/nuget/v/HelperDateTime?style=for-the-badge&color=blueviolet" alt="NuGet Version Badge"/>
+  -->
+  <!-- Futuro: cuando agregues cobertura
+  <img src="https://img.shields.io/badge/Coverage-90%25-brightgreen?style=for-the-badge" alt="Coverage Badge"/>
+  -->
+</p>
+
 # 🕓 HelperDateTime
 
-**HelperDateTime** es una solución desarrollada en **.NET 9** que proporciona utilidades avanzadas para trabajar con fechas y horas en aplicaciones .NET. Está diseñada para ser **modular, extensible, testeable y fácil de integrar** en otros proyectos.
+🚀 Utilidades avanzadas para fechas y horas en aplicaciones .NET
 
 ---
 
-## 📁 Estructura del Proyecto
+# 📑 Tabla de Contenido
 
-La solución está compuesta por tres proyectos:
-
-- `HelperDateTime`: Biblioteca principal con métodos utilitarios para manipulación de fechas y horas.
-  - `DateTimeQuery.cs`: Métodos para conversiones de zonas horarias, intervalos y partes de fecha/hora.
-  - `DateQuery.cs`: Operaciones sobre fechas como años bisiestos, diferencias, etc.
-  - `HelperValidateDate.cs`: Métodos de validación de fechas y cadenas relacionadas.
-- `HelperDateTime.Console`: Proyecto de consola con ejemplos y pruebas manuales.
-- `HelperDateTime.Tests`: Proyecto de pruebas unitarias con `xUnit`.
+- [Descripción](#-descripción)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Requisitos del Sistema](#-requisitos-del-sistema)
+- [Instalación y Ejecución](#-instalación-y-ejecución)
+- [Ejemplo de Ejecución](#-ejemplo-de-ejecución)
+- [Pruebas Unitarias](#-pruebas-unitarias)
+- [Diseño y Arquitectura](#-diseño-y-arquitectura)
+- [Seguridad](#-seguridad)
+- [Estado del Proyecto](#-estado-del-proyecto)
+- [Roadmap](#-roadmap)
+- [Cómo Contribuir](#-cómo-contribuir)
+- [Reporte de Bugs](#-reporte-de-bugs)
+- [Participa](#-participa)
+- [Licencia](#-licencia)
+- [Recursos Adicionales](#-recursos-adicionales)
 
 ---
 
-## ⚙️ Requisitos del Sistema
+# 🧩 Descripción
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-- Visual Studio 2022 o superior / VS Code
-- Opcional: Docker (para pruebas de portabilidad)
+**HelperDateTime** es una solución en **.NET 9** que proporciona herramientas avanzadas para manipular fechas, horas, intervalos, formatos y zonas horarias.
+Está diseñada para ser **modular**, **extensible**, **testeable** y fácilmente integrable en proyectos .NET.
 
 ---
 
-## 🚀 Instalación y Ejecución
+# 🏗️ Estructura del Proyecto
 
-### Clonar el repositorio
+| Proyecto                   | Descripción                                                       |
+| :------------------------- | :---------------------------------------------------------------- |
+| **HelperDateTime**         | Librería principal con operaciones de fecha, hora y validaciones. |
+| **HelperDateTime.Console** | Proyecto de consola interactivo con menú de pruebas manuales.     |
+| **HelperDateTime.Tests**   | Proyecto de pruebas unitarias utilizando xUnit.                   |
+
+---
+
+# ⚙️ Requisitos del Sistema
+
+- .NET 9 SDK
+- Visual Studio 2022 o superior / Visual Studio Code
+
+---
+
+# 🚀 Instalación y Ejecución
+
+### Clonar el Repositorio
 
 ```bash
 git clone https://github.com/usuario/HelperDateTime.git
@@ -41,109 +77,107 @@ dotnet restore
 dotnet build --configuration Release
 ```
 
-### Ejecutar proyecto de consola
+### Ejecutar el Proyecto de Consola
 
 ```bash
 dotnet run --project HelperDateTime.Console
 ```
 
-> Este comando ejecuta la aplicación de consola que ejemplifica el uso de la biblioteca principal.
-
----
-
-## 🧪 Pruebas Unitarias
-
-La solución cuenta con pruebas automatizadas utilizando `xUnit`.
-
-Ejecuta las pruebas con el siguiente comando:
+# 🧪 Pruebas Unitarias
 
 ```bash
 dotnet test
 ```
 
-> Las pruebas validan conversiones de fechas, intervalos, zonas horarias y validaciones de entradas.
+---
+
+# 🧱 Diseño y Arquitectura
+
+| Componente                               | Responsabilidad                         |
+| :--------------------------------------- | :-------------------------------------- |
+| **DateQuery**                            | Operaciones básicas sobre fechas        |
+| **DateTimeQuery**                        | Manipulación avanzada de fechas y horas |
+| **DateComparison / DateTimeComparison**  | Comparaciones                           |
+| **DateConversion / DateTimeConversions** | Conversión y formateo                   |
+| **HelperValidateDate**                   | Validaciones robustas de parámetros     |
 
 ---
 
-## 🧱 Diseño y Arquitectura
+# 🔐 Seguridad
 
-La solución sigue principios de diseño limpio y modular:
-
-- ✅ **Separación de responsabilidades**: cada clase tiene una función clara.
-- 🧩 **Extensibilidad**: se puede ampliar sin romper funcionalidades existentes.
-- 📄 **Documentación XML**: para integración con IntelliSense.
-- 🧼 **Sin dependencias externas**: fácil de incluir como librería utilitaria en otros proyectos.
+- No se almacenan ni procesan datos sensibles.
+- No se implementan mecanismos de autenticación.
 
 ---
 
-### Construir y ejecutar
+# 📌 Estado del Proyecto
+
+✅ En Desarrollo Activo  
+🚀 Próximo objetivo: Publicar en NuGet y alcanzar cobertura de pruebas superior al 90%.
+
+---
+
+# 🎯 Roadmap
+
+- [ ] Publicar en NuGet
+- [ ] Soporte extendido para zonas horarias regionales
+- [ ] Aumentar cobertura de pruebas >90%
+- [ ] Localización multilingüe
+- [ ] Integración con notebooks interactivos (.NET Interactive)
+
+---
+
+# 🤝 Cómo Contribuir
+
+1. Realiza un fork del repositorio
+2. Crea una nueva rama:
 
 ```bash
-docker build -t helperdatetime .
-docker run helperdatetime
+git checkout -b feature/nueva-funcionalidad
 ```
 
----
+3. Realiza tus cambios y añade pruebas unitarias
+4. Asegúrate de que todo pase:
 
-## 🔐 Seguridad
+```bash
+dotnet test
+```
 
-Este proyecto **no implementa mecanismos de autenticación ni autorización**, ya que se enfoca exclusivamente en utilidades para la gestión de fechas y horas.
-
-> 🔒 No se manejan datos sensibles ni conexiones externas.
-
----
-
-## 🧭 Roadmap
-
-- [ ] Publicar la librería en NuGet.
-- [ ] Soporte para más zonas horarias.
-- [ ] Agregar formatos culturales y localización.
-- [ ] Aumentar cobertura de pruebas >90%.
-- [ ] Incluir ejemplos en notebooks interactivos (`dotnet interactive`).
+5. Envía un Pull Request
 
 ---
 
-## 🤝 Cómo Contribuir
+# 🐞 Reporte de Bugs
 
-¡Gracias por tu interés en contribuir!
+Por favor abre un [Issue](https://github.com/usuario/HelperDateTime/issues) incluyendo:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama para tu funcionalidad:
-   ```bash
-   git checkout -b feature/nueva-funcionalidad
-   ```
-3. Realiza tus cambios y añade pruebas unitarias.
-4. Asegúrate de que todo compila y pasa:
-   ```bash
-   dotnet test
-   ```
-5. Abre un Pull Request describiendo claramente tus aportes.
-
-> ✍️ Buenas prácticas: código documentado, pruebas cubiertas y mensajes de commit claros.
+- Descripción del problema
+- Pasos para reproducirlo
+- Comportamiento esperado
+- Capturas de pantalla o logs (si aplica)
 
 ---
 
-## 🐞 Reporte de Errores
+# 📢 Participa
 
-Si detectas un bug o deseas proponer una mejora:
-
-1. Abre un Issue describiendo el problema.
-2. Incluye pasos para reproducir, resultados esperados y actuales.
-3. Adjunta ejemplos o logs si es posible.
+- [Reportar un Bug](https://github.com/usuario/HelperDateTime/issues)
+- [Solicitar Funcionalidad](https://github.com/usuario/HelperDateTime/issues)
+- [Ver Pull Requests](https://github.com/usuario/HelperDateTime/pulls)
 
 ---
 
-## 📄 Licencia
+# 📄 Licencia
 
-Este proyecto está bajo licencia [MIT](LICENSE).  
-Eres libre de usar, modificar y distribuir esta solución con atribución al autor original.
+Este proyecto está licenciado bajo la **MIT License**.
 
 ---
 
-## 📚 Recursos Adicionales
+# 📚 Recursos Adicionales
 
 - [Documentación oficial de .NET](https://learn.microsoft.com/dotnet/)
-- [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime)
-- [System.TimeZoneInfo](https://learn.microsoft.com/en-us/dotnet/api/system.timezoneinfo)
+- [System.DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)
+- [System.TimeZoneInfo](https://learn.microsoft.com/dotnet/api/system.timezoneinfo)
 - [xUnit Test Framework](https://xunit.net/)
-- [Crear bibliotecas reutilizables en .NET](https://learn.microsoft.com/en-us/dotnet/standard/class-library-overview)
+- [Guía de bibliotecas reutilizables en .NET](https://learn.microsoft.com/dotnet/standard/library-guidance)
+
+---

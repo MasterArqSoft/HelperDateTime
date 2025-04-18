@@ -1,9 +1,13 @@
-﻿namespace HelperDateTime;
+﻿using HelperDateTime.Validations;
+
+namespace HelperDateTime.Queries;
 /// <summary>
 /// Provides utility methods for working with DateTime and time zones.
 /// </summary>
 public static class DateTimeQuery
 {
+    private const string PacificStandardTime = "SA Pacific Standard Time";
+
     /// <summary>
     /// Converts the current UTC time to the specified local time zone.
     /// </summary>
@@ -28,7 +32,7 @@ public static class DateTimeQuery
         {
             try
             {
-                targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time");
+                targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById(PacificStandardTime);
             }
             catch
             {
@@ -84,7 +88,7 @@ public static class DateTimeQuery
         HelperValidateDate.ValidateNotNull(number, nameof(number));
         HelperValidateDate.ValidateDate(dateTime, nameof(dateTime));
 
-        return interval switch
+        return interval.ToLower() switch
         {
             "yyyy" => dateTime!.Value.AddYears(number!.Value),
             "m" => dateTime!.Value.AddMonths(number!.Value),

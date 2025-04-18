@@ -1,6 +1,7 @@
-﻿using System.Globalization;
+﻿using HelperDateTime.Validations;
+using System.Globalization;
 
-namespace HelperDateTime;
+namespace HelperDateTime.Conversions;
 
 /// <summary>
 /// Provides utility methods for converting and formatting <see cref="DateTime"/> objects.
@@ -65,7 +66,13 @@ public static class DateConversion
     public static DateTime StringToDate(string stringDate)
     {
         HelperValidateDate.ValidateString(stringDate, nameof(stringDate));
-        return DateTime.Parse(stringDate, CultureInfo.InvariantCulture);
+
+        if (!DateTime.TryParse(stringDate, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate))
+        {
+            throw new FormatException($"El string '{stringDate}' no tiene un formato de fecha válido.");
+        }
+
+        return parsedDate;
     }
 
     /// <summary>

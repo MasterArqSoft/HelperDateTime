@@ -1,4 +1,6 @@
-﻿namespace HelperDateTime;
+﻿using HelperDateTime.Validations;
+
+namespace HelperDateTime.Queries;
 /// <summary>
 /// Provides utility methods for date and time operations.
 /// </summary>
@@ -159,15 +161,13 @@ public static class DateQuery
         int fullWeeks = totalDays / 7;
         int remainingDays = totalDays % 7;
 
-        int startDay = GetDayOfWeek(startDate);
-        int adjustedDay = dayOfWeek!.Value;
+        int startDay = GetDayOfWeek(startDate); // 1 (Sunday) to 7 (Saturday)
+        int targetDay = dayOfWeek!.Value;       // 1 (Sunday) to 7 (Saturday)
 
-        if (adjustedDay < startDay)
-        {
-            adjustedDay += 7;
-        }
+        // Simplified: Does the targetDay fall within the extra days (those that do not form complete weeks)?
+        int daysOffset = (targetDay - startDay + 7) % 7;
 
-        if (adjustedDay - startDay < remainingDays)
+        if (daysOffset < remainingDays)
         {
             fullWeeks++;
         }
@@ -212,7 +212,7 @@ public static class DateQuery
         HelperValidateDate.ValidateNotNull(number, nameof(number));
         HelperValidateDate.ValidateDate(date, nameof(date));
 
-        return interval switch
+        return interval.ToLower() switch
         {
             "yyyy" => date!.Value.AddYears(number!.Value),
             "m" => date!.Value.AddMonths(number!.Value),

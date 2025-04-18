@@ -1,4 +1,4 @@
-﻿namespace HelperDateTime;
+﻿namespace HelperDateTime.Validations;
 /// <summary>
 /// Provides helper methods for validating dates, strings, and other parameters.
 /// </summary>

@@ -1,4 +1,6 @@
-﻿namespace HelperDateTime;
+﻿using HelperDateTime.Validations;
+
+namespace HelperDateTime.Comparisons;
 /// <summary>
 /// Provides methods for comparing two <see cref="DateTime"/> objects.
 /// </summary>
@@ -11,7 +13,7 @@ public static class DateTimeComparison
     /// <param name="finalDateTime">The second <see cref="DateTime"/> to compare.</param>
     /// <returns><c>true</c> if <paramref name="initialDateTime"/> is after <paramref name="finalDateTime"/>; otherwise, <c>false</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if either <paramref name="initialDateTime"/> or <paramref name="finalDateTime"/> is <c>null</c>.</exception>
-    public static bool DatetimeAfter(DateTime? initialDateTime, DateTime? finalDateTime)
+    public static bool DateTimeAfter(DateTime? initialDateTime, DateTime? finalDateTime)
     {
         HelperValidateDate.ValidateDate(initialDateTime, nameof(initialDateTime));
         HelperValidateDate.ValidateDate(finalDateTime, nameof(finalDateTime));
@@ -25,7 +27,7 @@ public static class DateTimeComparison
     /// <param name="finalDateTime">The second <see cref="DateTime"/> to compare.</param>
     /// <returns><c>true</c> if <paramref name="initialDateTime"/> is before <paramref name="finalDateTime"/>; otherwise, <c>false</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if either <paramref name="initialDateTime"/> or <paramref name="finalDateTime"/> is <c>null</c>.</exception>
-    public static bool DatetimeBefore(DateTime? initialDateTime, DateTime? finalDateTime)
+    public static bool DateTimeBefore(DateTime? initialDateTime, DateTime? finalDateTime)
     {
         HelperValidateDate.ValidateDate(initialDateTime, nameof(initialDateTime));
         HelperValidateDate.ValidateDate(finalDateTime, nameof(finalDateTime));
@@ -39,7 +41,7 @@ public static class DateTimeComparison
     /// <param name="finalDateTime">The second <see cref="DateTime"/> to compare.</param>
     /// <returns><c>true</c> if <paramref name="initialDateTime"/> is equal to <paramref name="finalDateTime"/>; otherwise, <c>false</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if either <paramref name="initialDateTime"/> or <paramref name="finalDateTime"/> is <c>null</c>.</exception>
-    public static bool DatetimeEquals(DateTime? initialDateTime, DateTime? finalDateTime)
+    public static bool DateTimeEquals(DateTime? initialDateTime, DateTime? finalDateTime)
     {
         HelperValidateDate.ValidateDate(initialDateTime, nameof(initialDateTime));
         HelperValidateDate.ValidateDate(finalDateTime, nameof(finalDateTime));

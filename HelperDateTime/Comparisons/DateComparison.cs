@@ -1,4 +1,6 @@
-﻿namespace HelperDateTime;
+﻿using HelperDateTime.Validations;
+
+namespace HelperDateTime.Comparisons;
 /// <summary>
 /// Provides methods for comparing dates.
 /// </summary>
@@ -11,7 +13,7 @@ public static class DateComparison
     /// <param name="finalDate">The final date to compare against.</param>
     /// <returns><c>true</c> if the initial date is after the final date; otherwise, <c>false</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if either <paramref name="initialDate"/> or <paramref name="finalDate"/> is null.</exception>
-    public static bool DateAfter(DateTime? initialDate, DateTime? finalDate)
+    public static bool IsDateAfter(DateTime? initialDate, DateTime? finalDate)
     {
         HelperValidateDate.ValidateDate(initialDate, nameof(initialDate));
         HelperValidateDate.ValidateDate(finalDate, nameof(finalDate));
@@ -25,7 +27,7 @@ public static class DateComparison
     /// <param name="finalDate">The final date to compare against.</param>
     /// <returns><c>true</c> if the initial date is before the final date; otherwise, <c>false</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if either <paramref name="initialDate"/> or <paramref name="finalDate"/> is null.</exception>
-    public static bool DateBefore(DateTime? initialDate, DateTime? finalDate)
+    public static bool IsDateBefore(DateTime? initialDate, DateTime? finalDate)
     {
         HelperValidateDate.ValidateDate(initialDate, nameof(initialDate));
         HelperValidateDate.ValidateDate(finalDate, nameof(finalDate));
@@ -39,7 +41,7 @@ public static class DateComparison
     /// <param name="finalDate">The final date to compare against.</param>
     /// <returns><c>true</c> if the initial date is equal to the final date; otherwise, <c>false</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if either <paramref name="initialDate"/> or <paramref name="finalDate"/> is null.</exception>
-    public static bool DateEquals(DateTime? initialDate, DateTime? finalDate)
+    public static bool IsDateEquals(DateTime? initialDate, DateTime? finalDate)
     {
         HelperValidateDate.ValidateDate(initialDate, nameof(initialDate));
         HelperValidateDate.ValidateDate(finalDate, nameof(finalDate));
