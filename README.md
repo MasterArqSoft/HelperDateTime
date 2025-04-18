@@ -2,7 +2,9 @@
   <img src="https://img.shields.io/badge/.NET-9.0-purple?style=for-the-badge&logo=dotnet" alt=".NET 9 Badge"/>
   <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build Status Badge"/>
   <img src="https://img.shields.io/badge/Tests-Passing-brightgreen?style=for-the-badge" alt="Tests Passing Badge"/>
+  <img src="https://img.shields.io/badge/Changelog-Maintained-brightgreen?style=for-the-badge" alt="Changelog Maintained"/>
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License MIT Badge"/>
+
   <!-- Futuro: cuando publiques en NuGet
   <img src="https://img.shields.io/nuget/v/HelperDateTime?style=for-the-badge&color=blueviolet" alt="NuGet Version Badge"/>
   -->
@@ -19,21 +21,25 @@
 
 # 📑 Tabla de Contenido
 
-- [Descripción](#-descripción)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Requisitos del Sistema](#-requisitos-del-sistema)
-- [Instalación y Ejecución](#-instalación-y-ejecución)
-- [Ejemplo de Ejecución](#-ejemplo-de-ejecución)
-- [Pruebas Unitarias](#-pruebas-unitarias)
-- [Diseño y Arquitectura](#-diseño-y-arquitectura)
-- [Seguridad](#-seguridad)
-- [Estado del Proyecto](#-estado-del-proyecto)
-- [Roadmap](#-roadmap)
-- [Cómo Contribuir](#-cómo-contribuir)
-- [Reporte de Bugs](#-reporte-de-bugs)
-- [Participa](#-participa)
-- [Licencia](#-licencia)
-- [Recursos Adicionales](#-recursos-adicionales)
+- [🕓 HelperDateTime](#-helperdatetime)
+- [📑 Tabla de Contenido](#-tabla-de-contenido)
+- [🧩 Descripción](#-descripción)
+- [🏗️ Estructura del Proyecto](#️-estructura-del-proyecto)
+- [⚙️ Requisitos del Sistema](#️-requisitos-del-sistema)
+- [🚀 Instalación y Ejecución](#-instalación-y-ejecución)
+  - [Clonar el Repositorio](#clonar-el-repositorio)
+  - [Restaurar dependencias y compilar](#restaurar-dependencias-y-compilar)
+  - [Ejecutar el Proyecto de Consola](#ejecutar-el-proyecto-de-consola)
+- [🧪 Pruebas Unitarias](#-pruebas-unitarias)
+- [🧱 Diseño y Arquitectura](#-diseño-y-arquitectura)
+- [🔐 Seguridad](#-seguridad)
+- [📌 Estado del Proyecto](#-estado-del-proyecto)
+- [🎯 Roadmap](#-roadmap)
+- [🤝 Cómo Contribuir](#-cómo-contribuir)
+- [🐞 Reporte de Bugs](#-reporte-de-bugs)
+- [📢 Participa](#-participa)
+- [📄 Licencia](#-licencia)
+- [📚 Recursos Adicionales](#-recursos-adicionales)
 
 ---
 
